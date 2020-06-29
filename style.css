@@ -1,0 +1,218 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+html {
+    font-family: 'Montserrat', sans-serif;
+    color: rgba(46, 49, 49, 1);
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container {
+    position: relative;
+    padding: 10px 0;
+    margin: 8px auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    width: 95%;
+    max-width: 960px;
+    height: 95vh;
+    background-image: url(./img/background-image.jpg);
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    border: 2px solid gray;
+    border-radius: 30px;
+}
+
+.container::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(46, 49, 49, .1);
+    border-radius: 30px;
+}
+
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    flex-grow: 1;
+    width: 100%;
+}
+
+.wrap {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.title-of-application {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0 25px;
+}
+
+.currency-converter {
+    display: flex;
+    flex-grow: 1;
+    width: 80%;
+}
+
+.circle {
+    position: relative;
+    align-self: flex-start;
+    width: 125px;
+    height: 125px;
+    background-image: radial-gradient(circle, white 25%, gray 100%);
+    border-radius: 50%;
+    border: none;
+    box-shadow: 0 0 15px gray;
+    text-align: center;
+}
+
+.click-to-convert-btn {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 80%;
+    height: 80%;
+    transform: translate(-50%, -50%);
+    background-image: radial-gradient(circle, gray 0%, white 70%);
+    box-shadow: 0 0 15px white;
+    border-radius: 50%;
+    border: none;
+    text-transform: uppercase;
+    font-size: 18px;
+    transition: linear .3s;
+    cursor: pointer;
+}
+
+.click-to-convert-btn:hover {
+    width: 85%;
+    height: 85%;
+    background-image: radial-gradient(circle, gray 0%, white 70%);
+    font-size: 20px;
+}
+
+.amount-to-convert,
+.after-convert-value,
+.currency-options {
+    width: 80%;
+    padding: 10px;
+    background-color: white;
+    border-radius: 30px;
+    border-style: inset;
+    border-top-color: rgba(128, 128, 128, .2);
+    border-left-color: rgba(128, 128, 128, .2);
+    border-bottom: none;
+    border-right: none;
+    font-size: 24px;
+    color: rgb(68, 68, 68);
+    flex-shrink: 2;
+}
+
+.currency-options {
+    align-self: flex-end;
+    width: 120px;
+    border-width: 2px;
+    border-top-color: rgba(128, 128, 128, .2);
+    border-left-color: rgba(128, 128, 128, .2);
+    border-bottom: none;
+    border-right: none;
+    cursor: pointer;
+}
+
+.after-convert-value {
+    align-self: flex-end;
+}
+
+label {
+    position: absolute;
+    font-size: 14px;
+    color: rgba(46, 49, 49, .6)
+}
+
+.amount-to-convert+label {
+    bottom: -15px;
+    left: 0;
+}
+
+.currency-options+label {
+    bottom: -17px;
+    right: 0;
+}
+
+.after-convert-value+label {
+    bottom: -15px;
+    right: 0;
+}
+
+
+@media (max-width: 959px) and (orientation: landscape) {
+    .landscape-position-changer {
+        position: absolute;
+        bottom: 30px;
+        right: 20px;
+        width: 60%;
+    }
+
+    .amount-to-convert {
+        width: 60%;
+    }
+}
+
+@media (min-width: 959px) {
+    .container {
+        height: 65vh;
+        width: 50%;
+        /* min-height: 380px; */
+    }
+
+    .wrapper {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        flex-grow: 1;
+        width: 80%;
+    }
+
+    .landscape-position-changer,
+    .amount-to-convert {
+        width: 60%;
+    }
+
+    .landscape-position-changer {
+        align-self: flex-end
+    }
+}
+
+@media (max-height: 480px) and (orientation: portrait) {
+    .container {
+        height: 170vh;
+    }
+}
+
+@media (max-height: 280px) and (orientation: landscape) {
+    .container {
+        height: 300vh;
+    }
+}
