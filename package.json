@@ -1,0 +1,12 @@
+{
+  "name": "currency_converter",
+    "version": "2.0.0",
+    "main": "index.js",
+    "license": "MIT",
+  "devDependencies": {
+    "typescript": "^4.2.4"
+  },
+  "browserslist": [
+    "since 2017-06"
+  ]
+}

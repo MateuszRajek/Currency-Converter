@@ -30,7 +30,7 @@ body {
     width: 95%;
     max-width: 960px;
     height: 95vh;
-    background-image: url(./img/background-image.jpg);
+    background-image: url(/background-image.b7b61f82.jpg);
     background-position: center;
     background-size: contain;
     background-repeat: no-repeat;
@@ -218,3 +218,5 @@ label {
         height: 300vh;
     }
 }
+
+/*# sourceMappingURL=/style.e308ff8e.css.map */
