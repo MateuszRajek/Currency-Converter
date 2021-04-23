@@ -128,33 +128,15 @@ const currentCurrencyTxtSpn = document.querySelector('.currentCurrency');
 let currency = currencySelector.value;
 
 const valueOfCurrency = function valueOfCurrency() {
-  return currency = this.value;
+  return currency = currencySelector.value;
 };
 
 btnConverter.addEventListener('click', getCurrency);
 currencySelector.addEventListener('change', valueOfCurrency);
-var CurrencyChoosen;
-
-(function (CurrencyChoosen) {
-  CurrencyChoosen["eur"] = "eur";
-  CurrencyChoosen["chf"] = "chf";
-  CurrencyChoosen["usd"] = "usd";
-  CurrencyChoosen["gbp"] = "gbp";
-})(CurrencyChoosen || (CurrencyChoosen = {}));
 
 function currencyExchange(currentCurrency) {
   const userAmount = parseInt(inputAmountToConvert.value);
-
-  if (currency === 'eur') {
-    outputScore.value = "".concat((userAmount * currentCurrency).toFixed(2), " PLN");
-  } else if (currency === 'chf') {
-    outputScore.value = "".concat((userAmount * currentCurrency).toFixed(2), " PLN");
-  } else if (currency === 'usd') {
-    outputScore.value = "".concat((userAmount * currentCurrency).toFixed(2), " PLN");
-  } else if (currency === 'gbp') {
-    outputScore.value = "".concat((userAmount * currentCurrency).toFixed(2), " PLN");
-  }
-
+  outputScore.value = "".concat((userAmount * currentCurrency).toFixed(2), " PLN");
   return currentCurrencyTxtSpn.textContent = "Current currency value of ".concat(currency.toUpperCase(), " is: ").concat(currentCurrency, " PLN");
 }
 
@@ -193,7 +175,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "54104" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "62637" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

@@ -5,42 +5,26 @@ const outputScore = <HTMLInputElement>document.querySelector('.after-convert-val
 const currentCurrencyTxtSpn = <HTMLElement>document.querySelector('.currentCurrency');
 let currency: string = currencySelector.value;
 
-const valueOfCurrency = function(this: any):number {
-    return currency = this.value;
+const valueOfCurrency = function():string {
+    return currency = currencySelector.value;
 }
 
 btnConverter.addEventListener('click', getCurrency);
 currencySelector.addEventListener('change', valueOfCurrency);
 
-enum CurrencyChoosen {
-    'eur' = 'eur',
-    'chf' = 'chf',
-    'usd' = 'usd',
-    'gbp' = 'gbp',
-}
-
 function currencyExchange(currentCurrency: number):string {
     const userAmount: number = parseInt(inputAmountToConvert.value);
+    outputScore.value = `${(userAmount * currentCurrency).toFixed(2)} PLN`;
 
-    if (currency === 'eur') {
-        outputScore.value = `${(userAmount * currentCurrency).toFixed(2)} PLN`;
-    } else if (currency === 'chf') {
-        outputScore.value = `${(userAmount * currentCurrency).toFixed(2)} PLN`;
-    } else if (currency === 'usd') {
-        outputScore.value = `${(userAmount * currentCurrency).toFixed(2)} PLN`;
-    } else if (currency === 'gbp') {
-        outputScore.value = `${(userAmount * currentCurrency).toFixed(2)} PLN`;
-    }
-
-    return currentCurrencyTxtSpn.textContent = `Current currency value of ${currency.toUpperCase()} is: ${currentCurrency} PLN`
+    return currentCurrencyTxtSpn.textContent = `Current currency value of ${currency.toUpperCase()} is: ${currentCurrency} PLN`;
 }
 
 async function getCurrency():Promise<string> {
     let response = await fetch(`https://api.nbp.pl/api/exchangerates/rates/a/${currency}/`);
     let json = await response.json();
-    let finalScore = await json.rates[0].mid
-    const currentCurrency: number = finalScore
+    let finalScore = await json.rates[0].mid;
+    const currentCurrency: number = finalScore;
 
-    return currencyExchange(currentCurrency)
+    return currencyExchange(currentCurrency);
 }
 
